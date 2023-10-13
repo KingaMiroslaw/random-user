@@ -6,7 +6,7 @@ import {
 import { PiMapPinLine } from "react-icons/pi";
 import { BsTelephone } from "react-icons/bs";
 
-const Card = () => {
+const Card: React.FC = () => {
   return (
     <div className="max-w-md text-white border rounded p-4">
       <h1>Let's find out about the User address</h1>
