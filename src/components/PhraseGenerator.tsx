@@ -11,14 +11,34 @@ const PhraseGenerator = ({ user, activeLink }: PhraseProps) => {
   }).format(new Date(user.dob.date));
 
   const phrases = [
-    `Name: ${user.name.first} ${user.name.last}`,
-    `Email: ${user.email}`,
-    `Date of birth: ${birthDate}`,
-    `Address: ${user.location.postcode} ${user.location.city}`,
-    `Phone number: ${user.cell}`,
+    {
+      label: "Name",
+      value: `${user.name.first} ${user.name.last}`,
+    },
+    {
+      label: "Email",
+      value: `${user.email}`,
+    },
+    {
+      label: "Date of birth",
+      value: `${birthDate}`,
+    },
+    {
+      label: "Address",
+      value: `${user.location.postcode} ${user.location.city}`,
+    },
+    {
+      label: "Phone ",
+      value: `${user.cell}`,
+    },
   ];
 
-  return <h1>{phrases[activeLink]}</h1>;
+  return (
+    <div>
+      <h1>{phrases[activeLink].label}</h1>
+      <h1>{phrases[activeLink].value}</h1>
+    </div>
+  );
 };
 
 export default PhraseGenerator;
