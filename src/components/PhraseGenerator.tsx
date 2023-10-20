@@ -34,8 +34,8 @@ const PhraseGenerator = ({ user, activeLink }: PhraseProps) => {
   ];
 
   return (
-    <div>
-      <h1>{phrases[activeLink].label}</h1>
+    <div className="md:text-2xl text-1xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#00df9a] to-white flex flex-col items-center">
+      <h1 className="uppercase">{phrases[activeLink].label}</h1>
       <h1>{phrases[activeLink].value}</h1>
     </div>
   );
