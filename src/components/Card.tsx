@@ -30,9 +30,15 @@ const Card = ({ user }: UserProps) => {
   return (
     <div className="max-w-lg w-full text-white border rounded p-8">
       <h1>Let's find out about the User address</h1>
-      <img src={user.picture.large} alt="user" />
+      <div className="flex justify-center my-8">
+        <div className=" w-32 h-32 bg-[#00df9a] rounded-lg  relative  bottom-3 right-4" />
+        <img
+          src={user.picture.large}
+          alt="user"
+          className="rounded-lg absolute"
+        />
+      </div>
       <PhraseGenerator user={user} activeLink={activeLink} />
-
       <div>
         <ul className="flex justify-between p-4 mt-2 ">
           {Icons.map((icon, index) => (
