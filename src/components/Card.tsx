@@ -8,6 +8,7 @@ import { BsTelephone } from "react-icons/bs";
 import { User } from "../types/user";
 import { useState } from "react";
 import PhraseGenerator from "./PhraseGenerator";
+import TextAnimation from "./TextAnimation";
 
 type UserProps = {
   user: User;
@@ -29,7 +30,7 @@ const Card = ({ user }: UserProps) => {
 
   return (
     <div className="max-w-lg w-full text-white border rounded p-8">
-      <h1>Let's find out about the User address</h1>
+      <TextAnimation />
       <div className="flex justify-center my-8">
         <div className=" w-32 h-32 bg-[#00df9a] rounded-lg  relative  bottom-3 right-4" />
         <img
