@@ -16,8 +16,6 @@ const App = () => {
     fetchUserData();
   }, []);
 
-  console.log(user); // to delete
-
   return (
     <main className="min-h-screen flex  flex-col max-w-[1240px] mx-auto">
       <Navbar />
