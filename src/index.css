@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  background-color: #000300;
-}
-
 svg {
   height: 2rem;
   width: 2rem;

@@ -10,9 +10,11 @@ const TextAnimation = () => {
 
   return (
     <div className="flex flex-row justify-center text-2xl p-2">
-      <p className="text-gray-500">
+      <p className=" text-[indigo] dark:text-gray-500">
         Find out the{" "}
-        <span className="text-gray-400 font-extrabold">{text}</span>
+        <span className="text-[indigo] dark:text-gray-400 font-extrabold">
+          {text}
+        </span>
         <span>
           <Cursor />
         </span>

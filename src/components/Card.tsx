@@ -29,7 +29,7 @@ const Card = ({ user }: UserProps) => {
   };
 
   return (
-    <div className=" max-w-lg w-full text-white border rounded-3xl border-indigo-500/50 p-8 shadow-lg shadow-indigo-500/50 ">
+    <div className=" max-w-lg w-full bg-gray-300/50 dark:bg-[#000300] border rounded-3xl border-gray-800/50 shadow-gray-800/50 dark:border-indigo-500/50 p-8 shadow-lg dark:shadow-indigo-500/50 ">
       <TextAnimation />
       <div className="flex justify-center my-8">
         <div className=" w-32 h-32 bg-[#00df9a] rounded-lg  relative  bottom-3 right-4" />
