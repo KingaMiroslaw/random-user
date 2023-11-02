@@ -3,8 +3,14 @@ import Navbar from "./components/Navbar";
 import Card from "./components/Card";
 import { User } from "./types/user";
 
+type ThemeOptions = "light" | "dark";
+
 const App = () => {
-  const [theme, setTheme] = useState<"light" | "dark">("light");
+  const [theme, setTheme] = useState<ThemeOptions>(
+    localStorage.getItem("theme")
+      ? (localStorage.getItem("theme") as ThemeOptions)
+      : "light"
+  );
   const [user, setUser] = useState<User | null>(null);
 
   const fetchUserData = () => {
@@ -18,10 +24,18 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    if (theme === "dark") {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
+    switch (theme) {
+      case "dark":
+        document.documentElement.classList.add("dark");
+        localStorage.setItem("theme", "dark");
+        break;
+      case "light":
+        document.documentElement.classList.remove("dark");
+        localStorage.setItem("theme", "light");
+        break;
+      default:
+        localStorage.removeItem("theme");
+        break;
     }
   }, [theme]);
 
