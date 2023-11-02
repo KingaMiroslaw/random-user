@@ -45,7 +45,7 @@ const App = () => {
 
   return (
     <main className="min-h-screen flex flex-col mx-auto dark:bg-[#000300]">
-      <Navbar handleTheme={handleTheme} />
+      <Navbar handleTheme={handleTheme} theme={theme} />
       <div className=" flex flex-col justify-center items-center flex-1">
         {user ? <Card user={user} /> : null}
         <button

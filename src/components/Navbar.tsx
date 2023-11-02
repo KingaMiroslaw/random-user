@@ -1,16 +1,22 @@
 import { FaMoon } from "react-icons/fa";
+import { IoSunnySharp } from "react-icons/io5";
 
 type ThemeProps = {
   handleTheme: () => void;
+  theme: string;
 };
 
-const Navbar = ({ handleTheme }: ThemeProps) => {
+const Navbar = ({ handleTheme, theme }: ThemeProps) => {
   return (
-    <div className="flex flex-row justify-between  items-center h-24  px-12  ">
+    <div className="flex flex-row justify-between  items-center h-24 mx-8   lg:mx-44  ">
       <h1 className="uppercase font-bold text-3xl text-[#00df9a] ">
         random user
       </h1>
-      <FaMoon className="dark:text-white text-[indigo]" onClick={handleTheme} />
+      {theme === "light" ? (
+        <FaMoon className=" text-[indigo]" onClick={handleTheme} />
+      ) : (
+        <IoSunnySharp className="text-white " onClick={handleTheme} />
+      )}
     </div>
   );
 };
