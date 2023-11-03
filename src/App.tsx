@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Navbar from "./components/Navbar";
 import Card from "./components/Card";
 import { User } from "./types/user";
@@ -13,15 +13,15 @@ const App = () => {
   );
   const [user, setUser] = useState<User | null>(null);
 
-  const fetchUserData = () => {
+  const fetchUserData = useCallback(() => {
     fetch("https://randomuser.me/api/")
       .then((response) => response.json())
       .then((data) => setUser(data.results[0] ?? null));
-  };
+  }, []);
 
   useEffect(() => {
     fetchUserData();
-  }, []);
+  }, [fetchUserData]);
 
   useEffect(() => {
     switch (theme) {
