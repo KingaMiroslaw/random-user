@@ -9,7 +9,7 @@ const TextAnimation = () => {
   });
 
   return (
-    <div className="flex flex-row justify-center text-2xl p-2">
+    <div className="flex flex-row justify-center text-xl sm:text-2xl p-2">
       <p className=" text-[indigo] dark:text-gray-500">
         Find out the{" "}
         <span className="text-[indigo] dark:text-gray-400 font-extrabold">
