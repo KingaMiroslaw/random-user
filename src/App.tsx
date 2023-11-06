@@ -49,7 +49,7 @@ const App = () => {
       <div className=" flex flex-col justify-center items-center flex-1">
         {user ? <Card user={user} /> : null}
         <button
-          className="bg-[#00df9a] hover:bg-[indigo] text-gray-700 hover:text-white rounded mx-auto w-48 mt-10 py-1 uppercase font-bold pointer   dark:bg-gradient-to-r dark:hover:from-[#00df9a] dark:hover:to-white dark:hover:text-gray-800 "
+          className="bg-[#00df9a] hover:bg-[indigo] text-gray-700 hover:text-white rounded mx-auto w-48 mt-10 py-1 uppercase font-bold pointer dark:hover:bg-[indigo] dark:hover:text-white"
           onClick={fetchUserData}
         >
           Change User
