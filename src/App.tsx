@@ -12,11 +12,32 @@ const App = () => {
       : "light"
   );
   const [user, setUser] = useState<User | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
 
   const fetchUserData = useCallback(() => {
-    fetch("https://randomuser.me/api/")
-      .then((response) => response.json())
-      .then((data) => setUser(data.results[0] ?? null));
+    const getUser = async () => {
+      try {
+        const response = await fetch("https://randjomuser.me/api/");
+        if (!response.ok) {
+          throw new Error(
+            `This is an HTTP error: The status is ${response.status}`
+          );
+        }
+        let actualUser = await response.json();
+        actualUser = actualUser.results[0] ?? null;
+        setUser(actualUser);
+        setError(null);
+      } catch (e) {
+        if (e instanceof Error) {
+          setError(e.message);
+          setUser(null);
+        }
+      } finally {
+        setLoading(false);
+      }
+    };
+    getUser();
   }, []);
 
   useEffect(() => {
@@ -42,6 +63,19 @@ const App = () => {
   const handleTheme = () => {
     setTheme(theme === "dark" ? "light" : "dark");
   };
+
+  if (loading)
+    return (
+      <p className="text-black min-h-screen flex justify-center items-center ">
+        A moment please...
+      </p>
+    );
+  if (error)
+    return (
+      <p className="text-[#00df9a] text-2xl uppercase min-h-screen flex justify-center items-center ">
+        Error: {error}
+      </p>
+    );
 
   return (
     <main className="min-h-screen flex flex-col mx-auto dark:bg-[#000300]">
