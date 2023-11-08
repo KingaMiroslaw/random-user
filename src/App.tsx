@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import Navbar from "./components/Navbar";
 import Card from "./components/Card";
 import { User } from "./types/user";
+import Loader from "./components/Loader";
 
 type ThemeOptions = "light" | "dark";
 
@@ -18,7 +19,7 @@ const App = () => {
   const fetchUserData = useCallback(() => {
     const getUser = async () => {
       try {
-        const response = await fetch("https://randjomuser.me/api/");
+        const response = await fetch("https://randomuser.me/api/");
         if (!response.ok) {
           throw new Error(
             `This is an HTTP error: The status is ${response.status}`
@@ -64,12 +65,7 @@ const App = () => {
     setTheme(theme === "dark" ? "light" : "dark");
   };
 
-  if (loading)
-    return (
-      <p className="text-black min-h-screen flex justify-center items-center ">
-        A moment please...
-      </p>
-    );
+  if (loading) return <Loader />;
   if (error)
     return (
       <p className="text-[#00df9a] text-2xl uppercase min-h-screen flex justify-center items-center ">

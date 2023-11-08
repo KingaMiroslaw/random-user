@@ -13,9 +13,15 @@ const Navbar = ({ handleTheme, theme }: ThemeProps) => {
         random user
       </h1>
       {theme === "light" ? (
-        <FaMoon className=" text-[indigo]" onClick={handleTheme} />
+        <FaMoon
+          className=" text-[indigo] cursor-pointer w-8 h-8"
+          onClick={handleTheme}
+        />
       ) : (
-        <IoSunnySharp className="text-white " onClick={handleTheme} />
+        <IoSunnySharp
+          className="text-white cursor-pointer w-8 h-8"
+          onClick={handleTheme}
+        />
       )}
     </div>
   );
